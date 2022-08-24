@@ -43,4 +43,6 @@ the output path for the logging file is the temporary folder (e.g.: /tmp/), but 
 - APT package: `gpsd-client` 3.22 or newer. or compiled from newest [source code](https://gitlab.com/gpsd/gpsd.git)
 - APT package: `sqlite3`
 - APT package: `gnuplot` (optional)
-  
+
+## see also:
+- my project [RPi-GPS-PPS-StratumOne](https://github.com/beta-tester/RPi-GPS-PPS-StratumOne) is setting up a gpsd-server you can use to collect gps data from.
