@@ -1,5 +1,5 @@
 # python-gpsd-client
-a gpsd-client in python is using python threadding.
+a gpsd-client in python is using python threading.
 
 this is a test project only. use it at your own risk.
 
