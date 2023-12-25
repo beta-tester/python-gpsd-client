@@ -312,6 +312,7 @@ class WorkerDatabase(Thread):
             db = sqlite3.connect(path.join(OUTPUT_PATH, f"{name}.sqlite"), timeout=TIMEOUT_DATABASE)
             cur = db.cursor()
             cur.execute("ATTACH DATABASE 'file::memory:' AS mem;")
+            cur.execute("PRAGMA journal_mode = 'WAL';")
             cur.execute("CREATE TABLE IF NOT EXISTS     data_gps_tpv (timestamp TEXT, host TEXT, mode INTEGER, lat REAL, lon REAL, alt REAL, e_lat REAL, e_lon REAL, e_alt REAL, track REAL, e_track REAL, speed REAL, e_speed REAL, climb REAL, e_climb REAL, PRIMARY KEY(timestamp, host));")
             cur.execute("CREATE TABLE IF NOT EXISTS mem.data_gps_tpv (timestamp TEXT, host TEXT, mode INTEGER, lat REAL, lon REAL, alt REAL, e_lat REAL, e_lon REAL, e_alt REAL, track REAL, e_track REAL, speed REAL, e_speed REAL, climb REAL, e_climb REAL, PRIMARY KEY(timestamp, host));")
             cur.execute("CREATE TABLE IF NOT EXISTS     data_gps_sky (timestamp TEXT, host TEXT, prn INTEGER, el INTEGER, az INTEGER, ss INTEGER, used INTEGER, PRIMARY KEY(timestamp, host, prn));")
